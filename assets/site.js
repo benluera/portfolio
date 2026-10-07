@@ -21,9 +21,12 @@
   });
   // carousels
   document.querySelectorAll('.carousel').forEach(function(c){
-    var tr=c.querySelector('.carousel-track');
-    c.querySelector('.car-prev').onclick=function(){tr.scrollBy({left:-tr.clientWidth*0.8,behavior:'smooth'})};
-    c.querySelector('.car-next').onclick=function(){tr.scrollBy({left:tr.clientWidth*0.8,behavior:'smooth'})};
+    var tr=c.querySelector('.carousel-track'), prev=c.querySelector('.car-prev'), next=c.querySelector('.car-next');
+    var step=function(){var k=tr.children[0]; return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(tr).gap||0):tr.clientWidth*0.8;};
+    prev.onclick=function(){tr.scrollBy({left:-step(),behavior:'smooth'})};
+    next.onclick=function(){tr.scrollBy({left:step(),behavior:'smooth'})};
+    var update=function(){prev.classList.toggle('is-off',tr.scrollLeft<=2);next.classList.toggle('is-off',tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-2);};
+    tr.addEventListener('scroll',update); window.addEventListener('resize',update); update();
   });
   // slideshows
   document.querySelectorAll('.slideshow').forEach(function(s){
