@@ -69,8 +69,11 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pn-label{font:600 12px/1.2 'Montserrat',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#2f7fbe}
 .pn-title{font:700 17px/1.3 'Inter',sans-serif;color:#111318}
 @media (max-width:809.98px){.proj-nav-inner{grid-template-columns:1fr}.pn-next{text-align:left;align-items:flex-start}.pn-empty{display:none}}
-.nav-phone-links{position:absolute;right:16px;top:0;height:64px;display:flex;align-items:center;gap:18px;z-index:3;font:600 15px 'Nunito',sans-serif}
+.nav-phone-links{position:absolute;right:14px;top:0;height:64px;display:flex;align-items:center;gap:14px;z-index:3;font:600 14px 'Nunito',sans-serif;white-space:nowrap}
 .nav-phone-links a{color:inherit;opacity:.92}
+/* make room for the links: smaller wordmark in the phone nav variants */
+[data-variant="x9P66OzGx"] .rt,[data-variant="JL91ug0ci"] .rt,[data-variant="x9P66OzGx"] .rt *,[data-variant="JL91ug0ci"] .rt *{font-size:22px!important}
+[data-variant="x9P66OzGx"] .rt:first-child,[data-variant="JL91ug0ci"] .rt:first-child,[data-variant="x9P66OzGx"] .rt:first-child *,[data-variant="JL91ug0ci"] .rt:first-child *{font-size:26px!important}
 /* youtube */
 .yt{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
