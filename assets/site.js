@@ -18,8 +18,6 @@
   // before/after sliders
   document.querySelectorAll('.before-after').forEach(function(b){
     var r=b.querySelector('.ba-range'), used=false, raf=0;
-    var hint=document.createElement('div'); hint.className='ba-hint'; hint.setAttribute('aria-hidden','true');
-    hint.textContent='Drag'; b.appendChild(hint);
     function setPos(v){b.style.setProperty('--pos',v+'%');}
     function stopDemo(){if(raf){cancelAnimationFrame(raf);raf=0;} b.classList.add('ba-used');}
     r.addEventListener('input',function(){used=true; stopDemo(); setPos(r.value);});
