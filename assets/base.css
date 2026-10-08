@@ -77,3 +77,13 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* youtube */
 .yt{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* hero headline + case-study prose */
+.hero-intro{width:100%;max-width:1080px;padding:0 40px;display:flex;flex-direction:column;gap:14px;align-self:center}
+.hero-intro h1{margin:0;font:700 40px/1.2 'Unbounded',sans-serif;color:rgb(2,64,120)}
+.hero-intro p{margin:0;font:400 20px/1.55 'Nunito',sans-serif;color:rgb(58,63,82);max-width:860px}
+@media (max-width:809.98px){.hero-intro{padding:0 40px;margin-top:28px}.hero-intro h1{font-size:min(30px,7.5vw)}.hero-intro p{font-size:17px}}
+.prose{width:100%;max-width:1000px;font:400 18px/1.65 'Nunito',sans-serif;color:#353738}
+.prose p{margin:0}
+.prose strong{font-weight:800;color:#111318}
+@media (max-width:809.98px){.prose{font-size:16px}}
