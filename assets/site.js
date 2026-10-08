@@ -17,25 +17,7 @@
   });
   // before/after sliders
   document.querySelectorAll('.before-after').forEach(function(b){
-    var r=b.querySelector('.ba-range'), used=false, raf=0;
-    function setPos(v){b.style.setProperty('--pos',v+'%');}
-    function stopDemo(){if(raf){cancelAnimationFrame(raf);raf=0;} b.classList.add('ba-used');}
-    r.addEventListener('input',function(){used=true; stopDemo(); setPos(r.value);});
-    r.addEventListener('pointerdown',function(){used=true; stopDemo();});
-    // one-time demo: the divider swings left, then right, then settles back at centre
-    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!reduce){
-      var start=null, D=2400, keys=[[0,50],[0.3,34],[0.7,66],[1,50]];
-      var ease=function(t){return t<.5?2*t*t:-1+(4-2*t)*t;};
-      var frame=function(ts){
-        if(used) return; if(!start) start=ts;
-        var t=Math.min(1,(ts-start)/D), v=50;
-        for(var i=1;i<keys.length;i++){ if(t<=keys[i][0]){ var a=keys[i-1], c=keys[i], u=(t-a[0])/(c[0]-a[0]); v=a[1]+(c[1]-a[1])*ease(u); break; } }
-        setPos(v); r.value=v;
-        if(t<1) raf=requestAnimationFrame(frame); else raf=0;
-      };
-      setTimeout(function(){ if(!used) raf=requestAnimationFrame(frame); },700);
-    }
+    var r=b.querySelector('.ba-range'); r.addEventListener('input',function(){b.style.setProperty('--pos',r.value+'%');});
   });
   // carousels
   document.querySelectorAll('.carousel').forEach(function(c){
